@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - F.I.G.</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* === CSS embedded === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      background: #fcfafc;
+      display: flex;
+      color: #ffffff;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .login-container {
+      width: 1200px;
+      height: 80vh;
+      max-width: 100%;
+      border-radius: 10px;
+      overflow: auto;
+      display: flex;
+      flex-direction: row;
+      transition: all 0.3s;
+      scrollbar-width: none;
+    }
+    .login-container:hover {
+      transition: 0.8 ease-in-out;
+      width: 1220px;
+      height: 82vh;
+    }
+    .login-box {
+      display: flex;
+      width: 100%;
+      flex-direction: row;
+      transition: all 0.3s;
+    }
+    .login-left, .login-right {
+      flex: 1;
+      padding: 40px;
+      padding-top: 7px;
+      min-width: 0;
+    }
+    /* Left (form) */
+    .login-left {
+      background: rgb(190, 189, 189);
+
+    }
+    .login-left h2 { color: #272527; margin-bottom: 10px; }
+    .login-left p { color: #555; margin-bottom: 20px; }
+    .icon {
+      font-size: 40px;
+      color: #2e7d32;
+      margin-bottom: 0px;
+    }
+    .input-group { margin: 30px 0; text-align: center;}
+    .input-group input {
+      width: 80%;
+      padding: 15px;
+      font-size: 15px;
+      border: 3px solid #ddd;
+      border-radius: 5px;
+    }
+    .btn {
+      width: 60%;
+      max-width: 220px;
+      padding: 15px;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.5s;
+      border-color: transparent;
+      background: linear-gradient(90deg, gold, #a104d1);
+      font-size: 1rem;
+    }
+    .btn:hover {background: linear-gradient(90deg, #a104d1, gold); color: #ffffff;}
+    .forgot {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #3bb2f6;
+      text-decoration: none;
+    }
+    /* Right (sign up prompt) */
+    .login-right {
+      background: linear-gradient(90deg, gold, #a104d1);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-right h2 { margin-bottom: 10px; }
+    .login-right p { margin-bottom: 20px; }
+    .user-icon {
+      font-size: 40px;
+      margin-bottom: 15px;
+    }
+    .btn-outline {
+      padding: 10px 20px;
+      border: 2px solid white;
+      border-radius: 15px;
+      color: white;
+      width: 60%;
+      max-width: 220px;
+      text-decoration: none;
+      transition: 0.5s;
+      font-size: 1rem;
+    }
+    .btn-outline:hover {
+      background: rgb(190, 189, 189);
+      border: 2px solid rgb(240, 237, 237);
+      color: #272527;
+    }
+    /* Responsive styles */
+    @media (max-width: 900px) {
+      .login-container, .login-box {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+      }
+      .login-left, .login-right {
+        padding: 30px 10px;
+      }
+      .login-container {
+        width: 98vw;
+        min-width: 0;
+      }
+    }
+    @media (max-width: 600px) {
+      .login-container {
+        width: 100vw;
+        border-radius: 0;
+        box-shadow: none;
+        min-width: 0;
+      }
+      .login-left, .login-right {
+        padding: 18px 2vw;
+      }
+      .icon img {
+        width: 30vw !important;
+        min-width: 60px;
+        max-width: 120px;
+      }
+      .btn, .btn-outline {
+        width: 90%;
+        font-size: 1em;
+        min-width: 0;
+      }
+      .input-group input {
+        width: 95%;
+        font-size: 1em;
+      }
+    }
+    @media (max-width: 768px) {
+  .login-container {
+    flex-direction: column; /* Stack rectangles */
+  }
+}
+
+  </style>
+</head>
+<body class="login-page">
+  <div class="login-container">
+    <div class="login-box">
+      <!-- Left: Login Form -->
+      <div class="login-left" style="justify-content: center; align-items: center; text-align: center;">
+        <div class="icon"><img src="Fig.jpg" style="width: 10%; padding: 0; border-radius: 40%;"></div>
+        <h2>Welcome Back to <span style="color: #424042; font-family: Verdana, Tahoma, sans-serif, 'Times New Roman'; font-size: 29px;">FIG</span>?</h2>
+        <p>Log in to your account</p>
+        <form id="loginForm" style="align-items: center; justify-content: center;">
+          <div class="input-group">
+            <input type="name" id="loginUsername" placeholder="Username" required>
+          </div>
+          <div class="input-group">
+            <input type="email" id="loginEmail" placeholder="Email" required>
+          </div>
+          <div class="input-group">
+            <input type="password" id="loginPassword" placeholder="Password" required>
+          </div>
+          <div><button type="submit" class="btn">Log In</button></div>
+          
+          <a href="#" class="forgot" style="text-align: left;margin-top: 10px;">Forgot your password?</a>
+        </form>
+      </div>
+      <!-- Right: Sign Up Prompt -->
+      <div class="login-right">
+        <div class="user-icon">👤</div>
+        <h2>Ready to Get Started?</h2>
+        <p class="Lorem">We welcome to our LogIn page. This is FIG, we do what we do by the grace of God. Get more detailed information about us when you SignUp or LogIn . Enjoy!!!</p>
+        <a href="signup.html" class="btn-outline">Sign Up</a>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+  <!-- <script>
+    // === JS embedded ===
+    const loginForm = document.getElementById("loginForm");
+    if (loginForm) {
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("loginEmail").value;
+        const password = document.getElementById("loginPassword").value;
+
+        const user = JSON.parse(localStorage.getItem("sustainhubUser"));
+
+        if (user && email === user.email && password === user.password) {
+          localStorage.setItem("loggedIn", "true");
+          alert("Login successful!");
+          window.location.href = "index.html"; // redirect to main site
+        } else {
+          alert("Invalid email or password!");
+        }
+      });
+    }
+  </script> -->
+</body>
+</html>
+
