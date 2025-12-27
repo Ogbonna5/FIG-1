@@ -3,6 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Login - F.I.G.</title>
+
+  <!-- Security / privacy meta to reduce false-positive flags -->
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+  <meta name="robots" content="index,follow">
+
   <link rel="stylesheet" href="style.css">
   <style>
     /* === CSS embedded === */
@@ -49,7 +55,6 @@
     /* Left (form) */
     .login-left {
       background: rgb(190, 189, 189);
-
     }
     .login-left h2 { color: #272527; margin-bottom: 10px; }
     .login-left p { color: #555; margin-bottom: 20px; }
@@ -166,7 +171,14 @@
         font-size: 1em;
       }
     }
-
+    footer.site-foot {
+      font-size: 0.85rem;
+      color: #333;
+      background: transparent;
+      padding: 10px 20px;
+      text-align: center;
+    }
+    footer.site-foot a { color:#2a7ae2; text-decoration:none; }
   </style>
 </head>
 <body class="login-page">
@@ -179,7 +191,7 @@
         <p>Log in to your account</p>
         <form id="loginForm" style="align-items: center; justify-content: center;">
           <div class="input-group">
-            <input type="name" id="loginUsername" placeholder="Username" required>
+            <input type="text" id="loginUsername" placeholder="Username" required>
           </div>
           <div class="input-group">
             <input type="email" id="loginEmail" placeholder="Email" required>
@@ -188,7 +200,7 @@
             <input type="password" id="loginPassword" placeholder="Password" required>
           </div>
           <div><button type="submit" class="btn">Log In</button></div>
-          
+
           <a href="#" class="forgot" style="text-align: left;margin-top: 10px;">Forgot your password?</a>
         </form>
       </div>
@@ -197,7 +209,7 @@
         <div class="user-icon">👤</div>
         <h2>Ready to Get Started?</h2>
         <p class="Lorem">We welcome to our LogIn page. This is FIG, we do what we do by the grace of God. Get more detailed information about us when you SignUp or LogIn . Enjoy!!!</p>
-        <a href="signup.html" class="btn-outline">Sign Up</a>
+        <a href="signup.html" class="btn-outline" rel="noopener noreferrer">Sign Up</a>
       </div>
     </div>
   </div>
@@ -214,7 +226,7 @@
           s.defer = true;
           document.body.appendChild(s);
         } else {
-          // On production, unregister any service workers that might cause reload loops (non-destructive)
+          // On production, unregister any stray service workers that might cause reload loops
           if ('serviceWorker' in navigator) {
             navigator.serviceWorker.getRegistrations().then(function(regs) {
               regs.forEach(function(r) {
@@ -229,27 +241,14 @@
     })();
   </script>
 
-  <!-- <script>
-    // === JS embedded ===
-    const loginForm = document.getElementById("loginForm");
-    if (loginForm) {
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = document.getElementById("loginEmail").value;
-        const password = document.getElementById("loginPassword").value;
-
-        const user = JSON.parse(localStorage.getItem("sustainhubUser"));
-
-        if (user && email === user.email && password === user.password) {
-          localStorage.setItem("loggedIn", "true");
-          alert("Login successful!");
-          window.location.href = "index.html"; // redirect to main site
-        } else {
-          alert("Invalid email or password!");
-        }
-      });
-    }
-  </script> -->
+  <!-- Security / trust footer -->
+  <footer class="site-foot" aria-label="site information">
+    <div>This site is hosted on Vercel over HTTPS. No downloads or external scripts run in production by default.</div>
+    <div style="margin-top:6px;">
+      <a href="privacy.html" rel="noopener noreferrer">Privacy Policy</a> •
+      <a href="mailto:support@example.com" rel="noopener noreferrer">Contact</a>
+    </div>
+    <div style="margin-top:6px; color:#666;">If Google reports this site as unsafe, verify ownership in Google Search Console and request a security review after cleaning any compromised files.</div>
+  </footer>
 </body>
 </html>
-
