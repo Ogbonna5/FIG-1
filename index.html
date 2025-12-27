@@ -23,7 +23,7 @@
       border-radius: 10px;
       overflow: auto;
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       transition: all 0.3s;
       scrollbar-width: none;
     }
@@ -120,8 +120,7 @@
     }
     /* Responsive styles */
     @media (max-width: 900px) {
-      .login-container, .login-box {
-        flex-direction: column;
+      .login-box {
         height: auto;
         min-height: 100vh;
       }
@@ -138,7 +137,14 @@
         width: 100vw;
         border-radius: 0;
         box-shadow: none;
-        min-width: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .login-box {
+        display: flex;
+        width: 100%;
+        flex-direction: column;
+        transition: all 0.3s;
       }
       .login-left, .login-right {
         padding: 18px 2vw;
@@ -158,11 +164,6 @@
         font-size: 1em;
       }
     }
-    @media (max-width: 768px) {
-  .login-container {
-    flex-direction: column; /* Stack rectangles */
-  }
-}
 
   </style>
 </head>

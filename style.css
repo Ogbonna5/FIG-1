@@ -69,7 +69,7 @@ main { padding: 80px 20px; }
 /* Responsive header adjustments */
 @media (max-width: 760px) {
   header { align-items: flex-start; }
-  header .container { display:flex;flex-direction:column;gap:8px;align-items:stretch }
+  /* header .container { display:flex;flex-direction:column;gap:8px;align-items:stretch } */
   header .brand img { width:36px }
   nav.nav { order: 2; width:100%; display:flex;flex-direction:column; gap:8px }
   nav.nav a, nav.nav button { display:block; width:100%; text-align:left; padding:10px 12px }
@@ -79,12 +79,12 @@ main { padding: 80px 20px; }
 /* Shared responsive for login/signup */
 @media (max-width: 900px) {
   /* index.html: default column, signup.html: override to column-reverse */
-  .login-container, .login-box {
+  /* .login-container, .login-box {
     flex-direction: column !important;
     height: auto !important;
     min-height: 100vh;
   }
-  body.signup-page .login-container, body.signup-page .login-box {
+  body .signup-page .login-container, body .signup-page .login-box {
     flex-direction: column-reverse !important;
   }
   .login-left, .login-right {
@@ -93,10 +93,10 @@ main { padding: 80px 20px; }
   .login-container {
     width: 98vw !important;
     min-width: 0 !important;
-  }
+  } */
 }
 @media (max-width: 600px) {
-  .login-container {
+  /* .login-container {
     width: 100vw !important;
     border-radius: 0 !important;
     box-shadow: none !important;
@@ -104,7 +104,7 @@ main { padding: 80px 20px; }
   }
   .login-left, .login-right {
     padding: 18px 2vw !important;
-  }
+  } */
   .icon img {
     width: 30vw !important;
     min-width: 60px !important;

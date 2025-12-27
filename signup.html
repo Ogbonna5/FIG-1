@@ -121,11 +121,6 @@
 
     /* Responsive styles */
     @media (max-width: 900px) {
-      .login-container, .login-box {
-        flex-direction: column-reverse;
-        height: auto;
-        min-height: 100vh;
-      }
       .login-left, .login-right {
         padding: 30px 10px;
       }
@@ -141,6 +136,12 @@
         display: block;
         box-shadow: none;
         min-width: 0;
+        display: flex;
+        flex-direction: column-reverse;
+      }
+      .login-box {
+        display: flex;
+        flex-direction: column-reverse;
       }
       .login-left, .login-right {
         padding: 18px 2vw;
@@ -160,11 +161,6 @@
         font-size: 1em;
       }
     }
-    @media (max-width: 768px) {
-  .login-box {
-    flex-direction: column-reverse !important; /* Reverse order when stacked */
-  }
-}
   </style>
 </head>
 <body class="signup-page">
