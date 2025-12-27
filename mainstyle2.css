@@ -751,6 +751,10 @@
             flex-direction: column;
             gap: 20px;
         }
+        
+        .contact-form1 {
+            gap: 20px;
+        }
 
         .form-group {
             display: flex;
@@ -791,7 +795,7 @@
         footer {
             background: var(--bg-primary);
             padding: 70px 0 30px;
-            border-top: 1px solid var(--border-color);
+            border-top: 3px solid var(--border-color);
         }
 
         .footer-content {
