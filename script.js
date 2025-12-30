@@ -1,3 +1,4 @@
+// ...existing code...
 // === AUTH LOGIC ===
 
 // Sign up
@@ -35,8 +36,10 @@ if (loginForm) {
   });
 }
 
-// Protect index.html
-if (window.location.pathname.includes("index.html")) {
+// Protect only the logged-in page (indexB.html)
+// Redirect unauthenticated visitors to the login page.
+// This avoids redirecting from index.html to itself.
+if (window.location.pathname.endsWith('indexB.html')) {
   const loggedIn = localStorage.getItem("loggedIn");
   if (loggedIn !== "true") {
     window.location.href = "index.html";
@@ -50,4 +53,4 @@ function logout() {
 }
 
 // === SustainHub logic (posting ideas, comments, etc.) ===
-// (copy over the idea posting, comments, upvote, sponsor logic we built earlier)
+// ...existing code...

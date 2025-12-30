@@ -179,7 +179,7 @@
         <p>Log in to your account</p>
         <form id="loginForm" style="align-items: center; justify-content: center;">
           <div class="input-group">
-            <input type="name" id="loginUsername" placeholder="Username" required>
+            <input type="text" id="loginUsername" placeholder="Username" required>
           </div>
           <div class="input-group">
             <input type="email" id="loginEmail" placeholder="Email" required>
@@ -202,54 +202,8 @@
     </div>
   </div>
 
-  <!-- Load script.js only during local development to avoid production reload loops (service workers / livereload) -->
-  <script>
-    (function() {
-      try {
-        var host = location.hostname;
-        // load script.js only on localhost or file:// (development)
-        if (host === 'localhost' || host === '127.0.0.1' || host === '') {
-          var s = document.createElement('script');
-          s.src = 'script.js';
-          s.defer = true;
-          document.body.appendChild(s);
-        } else {
-          // On production, unregister any service workers that might cause reload loops (non-destructive)
-          if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function(regs) {
-              regs.forEach(function(r) {
-                try { r.unregister(); } catch (e) {}
-              });
-            }).catch(function(){});
-          }
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    })();
-  </script>
-
-  <!-- <script>
-    // === JS embedded ===
-    const loginForm = document.getElementById("loginForm");
-    if (loginForm) {
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = document.getElementById("loginEmail").value;
-        const password = document.getElementById("loginPassword").value;
-
-        const user = JSON.parse(localStorage.getItem("sustainhubUser"));
-
-        if (user && email === user.email && password === user.password) {
-          localStorage.setItem("loggedIn", "true");
-          alert("Login successful!");
-          window.location.href = "index.html"; // redirect to main site
-        } else {
-          alert("Invalid email or password!");
-        }
-      });
-    }
-  </script> -->
+  <!-- Always load script.js (deferred) so forms work in production -->
+  <script src="script.js" defer></script>
 </body>
 </html>
-
+// ...existing code...

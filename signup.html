@@ -176,13 +176,13 @@
         <p class="Lorem">We welcome to you our SignUp page. This is FIG, we do what we do by the grace of God. Get more detailed information about us when you Login. Enjoy!!!</p>
         <a href="index.html" class="btn-outline">Log In</a>
       </div>
-      <!-- Left: Login Form -->
+      <!-- Left: Sign Up Form -->
       <div class="login-left" style="justify-content: center; align-items: center; text-align: center;">
         <div class="icon"><img src="Fig.jpg" style="width: 10%; padding: 0; border-radius: 40%;"></div>
         <h2>Create an Account now with <span style="color: #424042; font-family: Verdana, Tahoma, sans-serif, 'Times New Roman'; font-size: 29px;">FIG</span>?</h2>
         <form id="signupForm" style="color: #222121; align-items: center; justify-content: center;">
           <div class="input-group">
-            <input type="name" id="signupUsername" placeholder="Add Username" required>
+            <input type="text" id="signupUsername" placeholder="Add Username" required>
           </div>
          <div class="input-group">
             <input type="email" id="signupEmail" placeholder="Add Email" required>
@@ -196,52 +196,9 @@
       
     </div>
   </div>
-  <script>
-    (function() {
-      try {
-        var host = location.hostname;
-        // load script.js only on localhost or file:// (development)
-        if (host === 'localhost' || host === '127.0.0.1' || host === '') {
-          var s = document.createElement('script');
-          s.src = 'script.js';
-          s.defer = true;
-          document.body.appendChild(s);
-        } else {
-          // On production, unregister any service workers that might cause reload loops (non-destructive)
-          if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function(regs) {
-              regs.forEach(function(r) {
-                try { r.unregister(); } catch (e) {}
-              });
-            }).catch(function(){});
-          }
-        }
-      } catch (e) {
-        console.error(e);
-      }
-    })();
-  </script>
-  <!-- <script>
-    // === JS embedded ===
-    const loginForm = document.getElementById("loginForm");
-    if (loginForm) {
-      loginForm.addEventListener("submit", (e) => {
-        e.preventDefault();
-        const email = document.getElementById("loginEmail").value;
-        const password = document.getElementById("loginPassword").value;
 
-        const user = JSON.parse(localStorage.getItem("sustainhubUser"));
-
-        if (user && email === user.email && password === user.password) {
-          localStorage.setItem("loggedIn", "true");
-          alert("Login successful!");
-          window.location.href = "index.html"; // redirect to main site
-        } else {
-          alert("Invalid email or password!");
-        }
-      });
-    }
-  </script> -->
+  <!-- Always load script.js (deferred) so signup works in production -->
+  <script src="script.js" defer></script>
 </body>
 </html>
-
+// ...existing code...
