@@ -4,7 +4,8 @@
             --primary-BLUE: linear-gradient(90deg, gold, #a104d1);
             --primary-green: #34A853;
             --primary-red: #EA4335;
-            --primary-orange: #FBBC05;
+            --primary-orange: #e6af0b;
+            --primary-purple: rgb(154, 5, 154);
             --text-primary: #202124;
             --text-secondary: #5f6368;
             --bg-primary: #ffffff;
@@ -22,6 +23,7 @@
             --primary-green: #81c995;
             --primary-red: #f28b82;
             --primary-orange: #fdd663;
+            --primary-purple: purple;
             --text-primary: #e8eaed;
             --text-secondary: #9aa0a6;
             --bg-primary: #202124;
@@ -465,7 +467,7 @@
         }
 
         .brand-data .brand-icon {
-            background: var(--primary-green);
+            background: var(--primary-purple);
         }
 
         .brand-body {
@@ -488,6 +490,10 @@
         .status-coming {
             background: rgba(52, 168, 83, 0.1);
             color: var(--primary-green);
+        }
+        .status-completed {
+            background: rgba(52, 168, 83, 0.1);
+            color: var(--primary-purple);
         }
 
         .status-concept {
@@ -850,6 +856,63 @@
             color: var(--text-secondary);
             font-size: 0.9rem;
         }
+            .slideshow-container {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            scroll-behavior: smooth;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 10px rgba(240, 240, 240, 0.6);
+            background: var(--bg-card);
+        }
+
+        /* Slides */
+        .slides {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        .slides img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Fade animation */
+        .fade {
+            animation: fadeEffect 3s ease-in-out;
+        }
+
+        @keyframes fadeEffect {
+            from { opacity: 0.5; transform: scale(1.05); }
+            to   { opacity: 1; transform: scale(1); }
+        }
+
+        /* Navigation arrows */
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            color: white;
+            cursor: pointer;
+            padding: 10px 30px;
+            user-select: none;
+            background: rgba(82, 82, 82, 0.4);
+            border-radius: 50%;
+            transition: background 0.3s;
+        }
+
+        .prev:hover, .next:hover {
+            background: rgba(55, 54, 54, 0.8);
+            font-size: 50px;
+            transition: 1s ease-in-out;
+        }
+
+        .prev { left: 15px; }
+        .next { right: 15px; }
 
         /* Page Transitions */
         .page {

@@ -109,3 +109,31 @@
             card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
             observer.observe(card);
         });
+
+        let slideIndex = 0;
+        let slides = document.getElementsByClassName("slides");
+
+        showSlide(slideIndex);
+        autoPlay();
+
+        function showSlide(index) {
+            if (index >= slides.length) slideIndex = 0;
+            if (index < 0) slideIndex = slides.length - 1;
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex].style.display = "block";
+        }
+
+        function changeSlide(n) {
+            slideIndex += n;
+            showSlide(slideIndex);
+        }
+
+        function autoPlay() {
+            slideIndex++;
+            showSlide(slideIndex);
+            setTimeout(autoPlay, 10000); // change image every 4 seconds
+        }
